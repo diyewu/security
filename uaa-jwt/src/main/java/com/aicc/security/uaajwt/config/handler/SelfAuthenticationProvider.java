@@ -29,13 +29,14 @@ public class SelfAuthenticationProvider implements AuthenticationProvider {
             throw new BadCredentialsException("用户不存在，请重新登陆！");
         }
 
-        boolean checkpw = BCrypt.checkpw(password, userInfo.getPassword());
-
+//        boolean checkpw = BCrypt.checkpw(password, userInfo.getPassword());
         /**
          * TODO 增加特殊校验，如果密码与数据库一致也可通过
          */
-        if (!checkpw && StringUtils.equals(password,userInfo.getPassword())) {
-            checkpw = true;
+        boolean checkpw = StringUtils.equals(password,userInfo.getPassword());
+
+        if (!checkpw) {
+            checkpw = BCrypt.checkpw(password, userInfo.getPassword());
         }
         if (!checkpw) {
             throw new BadCredentialsException("用户名密码不正确，请重新登陆！");

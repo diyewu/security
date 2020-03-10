@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.aicc.security.uaa.dao.AuthRoleMapper">
+  <resultMap id="BaseResultMap" type="com.aicc.security.uaa.entity.AuthRole">
+    <id column="id" jdbcType="VARCHAR" property="id" />
+    <result column="description" jdbcType="VARCHAR" property="description" />
+    <result column="role_name" jdbcType="VARCHAR" property="role_name" />
+    <result column="role" jdbcType="VARCHAR" property="role" />
+    <result column="created_time" jdbcType="TIMESTAMP" property="created_time" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="update_time" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from auth_role
+    where id = #{id,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.aicc.security.uaa.entity.AuthRole">
+    insert into auth_role (id, description, role_name,
+      `role`, created_time, update_time
+      )
+    values (#{id,jdbcType=VARCHAR}, #{description,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, 
+      #{role,jdbcType=VARCHAR}, #{created_time,jdbcType=TIMESTAMP}, #{update_time,jdbcType=TIMESTAMP}
+      )
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="com.aicc.security.uaa.entity.AuthRole">
+    update auth_role
+    set description = #{description,jdbcType=VARCHAR},
+      role_name = #{name,jdbcType=VARCHAR},
+      `role` = #{role,jdbcType=VARCHAR},
+      created_time = #{created_time,jdbcType=TIMESTAMP},
+      update_time = #{update_time,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select id, description, role_name, `role`, created_time, update_time
+    from auth_role
+    where id = #{id,jdbcType=VARCHAR}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select id, description, role_name, `role`, created_time, update_time
+    from auth_role
+  </select>
+</mapper>

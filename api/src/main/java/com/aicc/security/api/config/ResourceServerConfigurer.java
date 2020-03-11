@@ -1,4 +1,4 @@
-package com.aicc.security.gateway.config;
+package com.aicc.security.api.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.security.config.annotation.web.reactive.EnableWebFluxSecurity;
@@ -11,7 +11,7 @@ public class ResourceServerConfigurer {
     @Bean
     public SecurityWebFilterChain springSecurityFilterChain(ServerHttpSecurity http) {
         http.authorizeExchange()
-                .pathMatchers("/auth/**").permitAll()
+//                .pathMatchers("/auth/**").permitAll()
                 .anyExchange()
                 .authenticated()
                 .and().csrf().disable();

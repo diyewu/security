@@ -5,9 +5,13 @@ import com.aicc.security.uaajwt.entity.Token;
 import com.aicc.security.uaajwt.service.UserService;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.HttpHeaders;
+import org.springframework.web.bind.annotation.*;
+
+import java.security.Principal;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
 
 /**
  * @description 用户权限管理
@@ -18,6 +22,11 @@ public class AuthController {
 
     @Autowired
     private UserService userService;
+
+    @GetMapping("hello")
+    public String getRequest() {
+        return "Hello World.";
+    }
 
     /**
      * @description 用户登录

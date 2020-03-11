@@ -10,6 +10,7 @@ import org.springframework.security.oauth2.provider.token.store.JwtTokenStore;
  * @author Administrator
  * @version 1.0
  **/
+/*
 @Configuration
 public class TokenConfig {
 
@@ -28,3 +29,4 @@ public class TokenConfig {
         return converter;
     }
 }
+*/

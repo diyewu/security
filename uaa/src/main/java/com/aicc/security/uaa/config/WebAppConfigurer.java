@@ -7,7 +7,7 @@ import org.springframework.http.converter.json.MappingJackson2HttpMessageConvert
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
-@Configuration
+/*@Configuration
 public class WebAppConfigurer implements WebMvcConfigurer {
 
     @Autowired
@@ -25,4 +25,4 @@ public class WebAppConfigurer implements WebMvcConfigurer {
                 .addPathPatterns("/**")
         ;
     }
-}
+}*/

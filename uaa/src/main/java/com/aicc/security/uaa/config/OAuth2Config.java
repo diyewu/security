@@ -32,7 +32,7 @@ import java.util.concurrent.TimeUnit;
 /**
  * @description OAuth2服务器配置
  */
-//@Configuration
+@Configuration
 public class OAuth2Config {
 
     public static final String ROLE_ADMIN = "ADMIN";
@@ -47,8 +47,8 @@ public class OAuth2Config {
     /**
      * @description 资源服务器
      */
-//    @Configuration
-//    @EnableResourceServer
+    @Configuration
+    @EnableResourceServer
     protected static class ResourceServerConfiguration extends ResourceServerConfigurerAdapter {
 
 //        @Autowired
@@ -71,10 +71,6 @@ public class OAuth2Config {
                     .antMatchers("/oauth/*","/demo/**", "/auth/user/login").permitAll()
                     //OPTIONS请求不需要鉴权
                     .antMatchers(HttpMethod.OPTIONS, "/**").permitAll()
-//                    //用户的增删改接口只允许管理员访问
-//                    .antMatchers(HttpMethod.POST, "/auth/user").hasAnyAuthority(ROLE_ADMIN)
-//                    .antMatchers(HttpMethod.PUT, "/auth/user").hasAnyAuthority(ROLE_ADMIN)
-//                    .antMatchers(HttpMethod.DELETE, "/auth/user").hasAnyAuthority(ROLE_ADMIN)
                     //获取角色 权限列表接口只允许系统管理员及高级用户访问
                     .antMatchers(HttpMethod.GET, "/auth/role").hasAnyAuthority(ROLE_ADMIN)
                     //其余接口没有角色限制，但需要经过认证，只要携带token就可以放行
@@ -87,8 +83,8 @@ public class OAuth2Config {
     /**
      * @description 认证授权服务器
      */
-//    @Configuration
-//    @EnableAuthorizationServer
+    @Configuration
+    @EnableAuthorizationServer
     protected static class AuthorizationServerConfiguration extends AuthorizationServerConfigurerAdapter {
 
         @Autowired

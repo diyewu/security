@@ -13,9 +13,12 @@ public class ResourceServerConfigurer {
         http.authorizeExchange()
                 .pathMatchers("/auth/**").permitAll()
                 .anyExchange()
-                .authenticated();
+                .authenticated()
+                .and().csrf().disable();
 
-        http.oauth2ResourceServer().jwt();
+        http.oauth2ResourceServer().jwt()
+//        .jwtAuthenticationConverter()
+        ;
 
         return http.build();
     }

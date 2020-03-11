@@ -1,0 +1,14 @@
+# Created by .ignore support plugin (hsz.mobi)
+### Example user template template
+### Example user template
+
+# IntelliJ project files
+.idea
+*.iml
+out
+gen
+gateway/target/classes/META-INF/
+gateway/target/generated-sources/
+uaa-jwt/src/test/
+uaa-jwt/target/
+uaa/target/
